@@ -1,0 +1,13 @@
+php-web:
+  build: index.docker.io/abhayagiri/php-7.0-apache
+  ports:
+    - "9090:80"
+  volumes:
+    - ./dist:/var/www/html
+
+php-nginx:
+  image: daocloud.io/library/nginx:1.7.10
+  ports:
+    - "80:80"
+  volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
